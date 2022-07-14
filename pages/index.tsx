@@ -1,9 +1,16 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import { useEffect } from 'react';
+import SplunkRum from '@splunk/otel-web';
 import styles from '../styles/Home.module.css'
 
 const Home: NextPage = () => {
+  useEffect(() => {
+    SplunkRum.setGlobalAttributes({
+      foo: 'bar'
+    });
+  }, []);
   return (
     <div className={styles.container}>
       <Head>
